@@ -1,0 +1,16 @@
+.vscode/
+.npmrc
+xxx.npmrc
+node_modules/
+test-results/
+*.orig
+.idea/
+logs/
+public/
+package-lock.json
+__tmp/
+coverage/
+.nyc_output/
+.DS_Store
+reports/
+dist/
