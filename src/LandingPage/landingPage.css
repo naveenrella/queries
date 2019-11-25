@@ -1,22 +1,21 @@
-.queriesTab {
-  display:flex
-}
-  ul {
-    padding-right: 40px;
-  }
-  ul>li {
-    list-style-type: none;
-    padding: 30px;
-    background-color: white;
-    color:green;    
-    border: 1px solid white;
-    cursor: pointer;
-    width: 150px;
+  .queriesTab {
+    display:flex
   }
 
-  li:hover {
-    background-color: green;
+  .query-label {
+    font-size: 20px;
+    background-color: white;
+    padding:15px;
+    width: 50%;
+    margin:10px 15px;
+    color:green;
+    display:block;
+    border: 2px solid white;
+  }
+  .query-label:hover {
+    cursor: pointer;
     color: white;
+    background-color:green;
   }
 
   .active{
@@ -36,4 +35,28 @@
     top: 100px;
     left: 100%;
     font-size: 26px;
+  };
+
+  .short-description {
+    position: fixed;
+    top: 0;
+    left: 10%;
   }
+
+  .short-description p {   
+    /* border: 2px solid white;
+    border-radius: 2px; */
+    font-size: 20px;
+    position: fixed;
+    top: 10%;
+    left: 30%;
+  }
+
+  .send-button {
+    font-size: 20px;
+    position: fixed;
+    top: 10%;
+    left: 40%;
+  }
+
+ 
