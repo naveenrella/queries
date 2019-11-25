@@ -19,56 +19,67 @@ class LandingPage extends Component {
         showSelectedTabDetails: {
           "id":"query1",
           "name":"Query 1",
+          "className":"query-label",
           "shortDescription": "Get All the employee details of an organization with query 1",
         },
         queries:[
           {
             "id":"query1",
+            "className":"query-label",
             "name":"Query 1",
             "shortDescription": "Get All the employee details of an organization with query 1",
           },
           {
             "id":"query2",
+            "className":"query-label",
             "name":"Query 2",
             "shortDescription": "Get All the employee details of an organization with query 2"
           },
           {
             "id":"query3",
+            "className":"query-label",
             "name":"Query 3",
             "shortDescription": "Get All the employee details of an organization with query 3"
           },
           {
             "id":"query4",
+            "className":"query-label",
             "name":"Query 4",
             "shortDescription": "Get All the employee details of an organization with query 4"
           },
           {
             "id":"query5",
+            "className":"query-label",
             "name":"Query 5",
             "shortDescription": "Get All the employee details of an organization with query 5"
           },
           {
             "id":"query6",
+            "className":"query-label",
             "name":"Query 6",
             "shortDescription": "Get All the employee details of an organization with query 6"
           },
           {
             "id":"query7",
+            "className":"query-label",
             "name":"Query 7",
             "shortDescription": "Get All the employee details of an organization with query 7"
           },
           {
             "id":"query8",
+            "className":"query-label",
             "name":"Query 8",
             "shortDescription": "Get All the employee details of an organization with query 8"
           },
           {
             "id":"query9",
+            "className":"query-label",
             "name":"Query 9",
             "shortDescription": "Get All the employee details of an organization with query 9"
           },
           {
             "id":"query10",
+            "className":"query-label",
             "name":"Query 10",
             "shortDescription": "Get All the employee details of an organization with query 10"
           },
@@ -83,13 +94,23 @@ class LandingPage extends Component {
   
   selectedTab(e, item) {
     console.log(`selected ${JSON.stringify(item)}`);
+    let selectedTabDetails = this.state.queries;
+    selectedTabDetails.forEach(function (obj) {
+      if(obj.id === item.id) {
+        obj.className = "query-label active";
+      }else{
+        obj.className = "query-label";
+      }
+      })
     this.setState(prevState => ({
       showSelectedTabDetails: {                   // object that we want to update
           ...prevState.showSelectedTabDetails,    // keep all other key-value pairs
           name: item.name,
           id: item.id,
           shortDescription: item.shortDescription       // update the value of specific key
-      }
+      },
+      queries:selectedTabDetails
+      
   }))
   };
   
@@ -123,7 +144,7 @@ class LandingPage extends Component {
           {
             this.queriesLabels = this.state.queries.map((item, index) =>
               <label 
-                className={"query-label"} 
+                className={item.className} 
                 onClick={((e) => this.selectedTab(e, item))}
                 key={item.id}> 
                 {item.name}                

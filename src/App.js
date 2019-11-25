@@ -11,7 +11,7 @@ class App extends Component {
     this.state = {
       parentHoldingQueryData: null,
       childData:null,
-      welcomePage:true
+      welcomePage:false
     };
   }
 
