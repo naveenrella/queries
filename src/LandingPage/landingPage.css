@@ -4,13 +4,14 @@
 
   .query-label {
     font-size: 20px;
-    background-color: white;
-    padding:15px;
-    width: 50%;
-    margin:10px 15px;
-    color:green;
-    display:block;
-    border: 2px solid white;
+    background-color: #646464;
+    padding: 10px 50px;
+    width: 15%;
+    justify-content: center;
+    margin: 10px 15px;
+    color: white;
+    display: flex;
+    /* border: 2px solid white; */
   }
   .query-label:hover {
     cursor: pointer;
@@ -37,21 +38,26 @@
     font-size: 26px;
   };
 
-  .short-description {
-    position: fixed;
-    top: 0;
-    left: 10%;
+  section {
+    /* position: fixed;
+    top: 10%;
+    left: 10%; */
+    padding-top: 100px!important;
   }
 
   .short-description p {   
     /* border: 2px solid white;
     border-radius: 2px; */
-    font-size: 20px;
-    position: fixed;
-    top: 10%;
-    left: 30%;
+    font-size: 25px;
+    position: absolute;
+    top: 15%;
+    left: 18%;
+    color:white;
   }
 
+  .short-description button {
+    margin-left:100px;
+  }
   .send-button {
     font-size: 20px;
     position: fixed;
@@ -59,4 +65,8 @@
     left: 40%;
   }
 
- 
+ /* overriding material ui table */
+  .makeStyles-root-32{
+   margin-left: 17%!important;
+   margin-top: -30% !important;
+ }

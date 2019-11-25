@@ -1,7 +1,14 @@
 import React,{ Component } from "react";
+import { css } from '@emotion/core';
 import Button from '@material-ui/core/Button';
+import BeatLoader from 'react-spinners/BeatLoader';
 import "./landingPage.css";
 
+const override = css`
+    display: block;
+    margin: 2 auto;
+    border-color: white;
+`;
 
 class LandingPage extends Component {
   constructor(props) {
@@ -12,13 +19,13 @@ class LandingPage extends Component {
         showSelectedTabDetails: {
           "id":"query1",
           "name":"Query 1",
-          "shortDescription": "Get All the employee details of an organization",
+          "shortDescription": "Get All the employee details of an organization with query 1",
         },
         queries:[
           {
             "id":"query1",
             "name":"Query 1",
-            "shortDescription": "Get All the employee details of an organization",
+            "shortDescription": "Get All the employee details of an organization with query 1",
           },
           {
             "id":"query2",
@@ -66,7 +73,8 @@ class LandingPage extends Component {
             "shortDescription": "Get All the employee details of an organization with query 10"
           },
         ],
-        parentHoldingQueryData:[]
+        parentHoldingQueryData:[],
+        loading: ''
     };
 
     this.getApiData = this.getApiData.bind(this);
@@ -86,13 +94,20 @@ class LandingPage extends Component {
   };
   
   getApiData(e, id) {    
+    this.setState({loading: true});
+    // make asynchronous call
     console.log(`you are about to query the ${id} statement.`);
     fetch(`http://localhost:8080/${id}`) // take the ID and fetch the respective url
     .then(res => res.json())
     .then((data) => {
-      this.props.sendData(data);
+      setTimeout(() => {
+        this.setState({loading: false});
+        this.props.sendData(data);
+      }, 500);
+      
     })
-    .catch(console.log);    
+    .catch(console.log);
+    
   }
 
   sendDataToAppComponent = (landingPageData) => {
@@ -117,19 +132,25 @@ class LandingPage extends Component {
           } 
           {/* if you have selected any query then assosiated short description would show up */}
           { this.state.showSelectedTabDetails &&
-          <p>
+          <p className="description-text">
             {this.state.showSelectedTabDetails.shortDescription}
-            
-            <Button
-                variant="contained"
-                color="primary"
-                className="send-button"
-                onClick={((e) => this.getApiData(e, this.state.showSelectedTabDetails.id))}
+            <Button 
+              variant="contained" 
+              color="primary"
+              size="large"              
+              onClick={((e) => this.getApiData(e, this.state.showSelectedTabDetails.id))} 
               >
-              Send
-            </Button>
+              <BeatLoader
+                css={override}
+                sizeUnit={"px"}
+                size={15}
+                color={'#FFFFFF'}
+                loading={this.state.loading}
+              />
+              {this.state.loading ? '' : 'Search'}           
+            </Button>           
           </p>
-          }              
+          }       
         </div>
     )
   }

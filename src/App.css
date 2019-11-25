@@ -5,17 +5,68 @@
 .App-logo {
   height: 40vmin;
 }
-
-.App-header {
-  background-color: #282c34;
+.App {
+  background-color: black;
   min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  
+}
+.App-header {
+  background-color: rgba(42,40,40,.8);
+  height:75px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 3;
+}
+
+header>img{
+  height: 75px;
+  width: 75px;
 }
 
 .App-link {
   color: #09d3ac;
+}
+
+.girl-picture{
+  position: relative;
+  min-width: 100%;
+  min-height: 750px;
+  max-height: none;
+  left: 0px;
+  margin-left: 0px;
+}
+
+.proceed-text {
+  background-color: #e31b239e;
+  width: 570px;
+  height: 519px;
+  color: white;
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  border-radius:5px;
+}
+
+.proceed-text h2 {
+  font-size: 3.125rem;
+  font-size: 3.125rem;
+  line-height: 3.4375rem;
+  color: #fff;
+  font-weight: 700;
+  margin-top:20%;
+}
+
+.proceed-button {
+  border: 2px solid white;
+  padding:10px 20px;
+  font-size: 18px;
+  background-color: transparent;
+  color: white;
+}
+
+.proceed-button:hover {
+  background-color:white;
+  color: #e31b239e;
 }
