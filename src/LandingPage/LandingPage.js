@@ -1,8 +1,7 @@
 import React,{ Component } from "react";
 import Button from '@material-ui/core/Button';
-import Icon from '@material-ui/core/Icon';
-import { makeStyles } from '@material-ui/core/styles';
 import "./landingPage.css";
+
 
 class LandingPage extends Component {
   constructor(props) {
@@ -116,20 +115,21 @@ class LandingPage extends Component {
               </label>
             )
           } 
+          {/* if you have selected any query then assosiated short description would show up */}
           { this.state.showSelectedTabDetails &&
-          <p>{this.state.showSelectedTabDetails.shortDescription}</p>
-          }
-
-
-          {/* send id as prop to this button */}
-          <Button
-              variant="contained"
-              color="primary"
-              className="send-button"
-              onClick={((e) => this.getApiData(e, this.state.showSelectedTabDetails.id))}
-            >
+          <p>
+            {this.state.showSelectedTabDetails.shortDescription}
+            
+            <Button
+                variant="contained"
+                color="primary"
+                className="send-button"
+                onClick={((e) => this.getApiData(e, this.state.showSelectedTabDetails.id))}
+              >
               Send
-            </Button>                       
+            </Button>
+          </p>
+          }              
         </div>
     )
   }
